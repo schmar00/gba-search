@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>keyword search</title>
+
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/site.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/b5954a49f0.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css">
+    <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+
+    <script src="js/webservices.js"></script>
+    <script src="js/site.js"></script>
+    <style>
+        .dropdown-menu {
+            min-width: 250px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        if (typeof central == 'undefined' || window.navigator.userAgent.indexOf('MSIE ') > 0 || window.navigator.userAgent.indexOf('Trident/') > 0) {
+            document.execCommand('Stop');
+            document.body = document.createElement("body");
+            document.body.innerHTML = '<div class="alert alert-dismissible alert-warning">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<h4 class="alert-heading">GeoERA Semantic Search</h4>' +
+                '<p class="mb-0">[Deutsch]<br>' +
+                'Die Website wurde f&uuml;r die Browser Firefox, Chrome, Safari oder MS Edge optimiert bzw. modernisiert und unterst&uuml;tzt nicht mehr die Darstellung im MS Internet Explorer 11 oder &auml;lter.' +
+                '<br><br>' +
+                '[English]<br>This website is optimized for browsers Firefox, Chrome, Safari or MS Edge. - MS Internet Explorer 11 or older is not supported any more.' +
+                '</p></div>';
+        } else {
+            $(document).ready(function() {
+                central.init();
+            });
+        }
+    </script>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Search Widget -->
+                <div id="search_widget" class="card my-4 text-white bg-info mb-3">
+                    <h5 class="card-header">
+                        <strong>GBA SEARCH</strong>
+                        <select id="selectLang" class="custom-select text-white bg-info" style="max-width: 150px; float: right; font-size: 70%;"></select>
+                    </h5>
+                    <div id="searchCard" class="card-body" style="margin-top: -10px;">
+                        <div class="text-white">
+                            <span><select id="searchCategories" multiple="multiple" class=""></select></span>
+                            <span style="float: right; margin-top: 4px;">
+                                results&nbsp;&nbsp;&nbsp;<input id="maxResults" type="text" value="50" class="text-white bg-info" style="max-width: 40px; text-align: center; border-width: 0.5px;">
+                            </span>
+                        </div>
+                        <div id="searchGroup" class="input-group">
+
+                            <input id="searchInput" type="text" class="form-control" placeholder="Search for...  (e.g. extraction)" disabled="">
+                            <div style="position: absolute; top: 39px;">
+                                <table id="dropdown" class="table table-hover"></table>
+                            </div>
+                            <span class="input-group-btn"><button id="searchBtn" class="btn btn-secondary" type="button">Go!</button></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="spinner" style="visibility:collapse;">
+                    <div class="spinner-grow spinner-grow-sm text-primary" role="status"></div>
+                    <span id="qCount">1</span>
+                </div>
+                <div id="pageContent" class="col-lg-12">
+                    <div id="searchInfo"></div>
+                    
+                    <div id="2"></div>
+                    <div id="3"></div>
+                    <div id="4"></div>
+                    <div id="5"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="card my-4 border-info mb-3" style="max-width: 20rem; line-height: 100%;">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <div id="1"></div>
+                        <p class="card-text">
+                            <small>
+<!--                                This example is built to search the <a href="https://egdi.geology.cz/?ak=search">EGDI (Micka) CSW catalogue web service</a>. For the search logic is used the <strong>new GeoERA Keyword Thesaurus</strong> hosted at the Geological Survey of Austria (<a href="http://resource.geolba.ac.at/PoolParty/sparql/geoera_keyword">Sparql endpoint</a>).
+                                <hr />
+                                <strong>Relevance</strong> (score) for sorting the results list is calculated as follows:<br>
+                                1 pt for each "any text" matching<br>
+                                10 pts for the search term found in keyword-metadata / 3 pts for each of the narrower or related terms / 1 pt for each of broader terms<br>
+                                <strong>additionally:</strong><br>
+                                10 pts for the search term in title / 7 pts in abstract<br>
+                                4 pts for any related terms in title / 1 pt in abstract<br>
+                                1 pt for bbox fitting to language selected<br>
+                                A total sum of points more than 12 pts is seen as a 100% matching result.<br>
+                                <hr />
+                                Note:<br>Keywords are searched against catalogue texts in English language. But the language of the keywords offered to search is <strong>choosen by the browser language</strong>. About 30% terms are available in 23 non-english languages.-->
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+</body></html>
+
+
