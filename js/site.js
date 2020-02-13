@@ -355,7 +355,7 @@ let central = {
             }
             central.clearPage();
             $('#searchInfo').html(searchInfo);
-            
+
             central.queryCSW(rankedTerms, rankedTermsDE); //alle Begriffe und in 5 arrays zerteilt
         });
     },
@@ -387,13 +387,13 @@ let central = {
             central.printResults(results.sort((a, b) => b.rank - a.rank), [rankedTerms[0], [], [], [], []], 'full text (exact matches)');
             //console.log(`${prefix}FullText%3D'${searchTerm}'${suffix}`, text);
         });
-        
+
         let searchTerm2 = searchTerm.split("' AND FullText%3D'").join("'%2b'");
         ws_opac.json(`(title='${searchTerm2}')OR(keyword.contents='${searchTerm2}')`, data => {
-                results = central.addOPAC_Results(results, data, rankedTerms, 12);
-                central.printResults(results.sort((a, b) => b.rank - a.rank), [rankedTerms[0], [], [], [], []], 'full text (exact matches)');
-                //console.log();
-            });
+            results = central.addOPAC_Results(results, data, rankedTerms, 12);
+            central.printResults(results.sort((a, b) => b.rank - a.rank), [rankedTerms[0], [], [], [], []], 'full text (exact matches)');
+            //console.log();
+        });
 
 
 
@@ -694,7 +694,10 @@ let central = {
             }, {
             type: 'Diplomarbeit',
             html: '<i class="fas fa-user-graduate"></i>'
-            }, {                
+            }, {
+            type: 'Karte',
+            html: '<i class="fas fa-map"></i>'
+            }, {
             type: 'nonGeographicDataset',
             html: '<i class="fas fa-database"></i>'
             }, {
